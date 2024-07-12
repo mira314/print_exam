@@ -39,3 +39,25 @@ int put_nbr(long long int nb, int base)
     count += put_char(c);
     return (count);
 }
+
+int	ft_printf(const char *format, ... )
+{
+    int i = 0;
+    int len = 0;
+    va_list pointer;
+    va_start(pointer, format);
+    while (format[i])
+    {
+        if ()
+        {
+            if
+            else if
+            else if
+        }
+        else
+            len += put_char(format[i]);
+        i++;
+    }
+    va_end(pointer);
+    return (len);
+}
