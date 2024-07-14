@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdio.h>
 #include <stdarg.h>
 int put_char(char c)
 {
@@ -17,7 +18,7 @@ int put_str(char *str)
     while (str[i])
     {
         count += put_char(str[i]);
-        +++;
+        i++;
     }
     return (count);
 }
@@ -48,12 +49,15 @@ int	ft_printf(const char *format, ... )
     va_start(pointer, format);
     while (format[i])
     {
-        if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'd' || format[i + 1] == 'x' ||))
+        if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'd' || format[i + 1] == 'x'))
         {
             i++;
             if (format[i] == 's')
+            	len += put_str(va_arg(pointer, char *));
             else if (format[i] == 'd')
+            	len += put_nbr(va_arg(pointer, int), 10);
             else if (format[i] == 'x')
+            	len += put_nbr(va_arg(pointer, int), 16);
         }
         else
             len += put_char(format[i]);
@@ -61,4 +65,20 @@ int	ft_printf(const char *format, ... )
     }
     va_end(pointer);
     return (len);
+}
+int main(int argc, char const *argv[])
+{
+	int len= 0;
+	int len1= 0;
+	len = ft_printf("teste %d\n",145, "oui");
+	len1 = ft_printf("teste %d\n",145, "oui");
+	printf("len %d\n",len );
+	printf("len1 %d\n",len1 );
+	return 0;
+}
+int main(int argc, char const *argv[])
+{
+	char *str;
+	str[i] =  * x
+	return 0;
 }
