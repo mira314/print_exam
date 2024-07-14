@@ -76,9 +76,4 @@ int main(int argc, char const *argv[])
 	printf("len1 %d\n",len1 );
 	return 0;
 }
-int main(int argc, char const *argv[])
-{
-	char *str;
-	str[i] =  * x
-	return 0;
-}
+
