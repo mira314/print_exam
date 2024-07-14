@@ -48,11 +48,12 @@ int	ft_printf(const char *format, ... )
     va_start(pointer, format);
     while (format[i])
     {
-        if ()
+        if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'd' || format[i + 1] == 'x' ||))
         {
-            if
-            else if
-            else if
+            i++;
+            if (format[i] == 's')
+            else if (format[i] == 'd')
+            else if (format[i] == 'x')
         }
         else
             len += put_char(format[i]);
