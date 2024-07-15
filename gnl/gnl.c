@@ -8,9 +8,7 @@ char *ft_strchar(char *str, int c)
 	while (str[i])
 	{
 		if (str[i] == (char )c)
-		{
 			return (str);
-		}
 		i++;
 	}
 	return (0);
@@ -20,9 +18,7 @@ unsigned int ft_strlen(char *str)
 	unsigned int i;
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
 	return (i);
 }
 char *ft_strcpy(char *dest, char *src)
