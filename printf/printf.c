@@ -39,7 +39,22 @@ int put_nbr(long int nb)
     count += put_char(c);
     return (count);
 }
+int	ft_puthex(unsigned int nb)
+{
+	int		count;
+	char	*hex;
 
+	hex = "0123456789abcdef";
+	count = 0;
+	if (nb >= 16)
+	{
+		count += ft_puthex(nb / 16);
+		count += ft_puthex(nb % 16);
+	}
+	else
+		count += put_char(hexc[nb]);
+	return (count);
+}
 int	ft_printf(const char *format, ... )
 {
     int i = 0;
@@ -54,9 +69,9 @@ int	ft_printf(const char *format, ... )
             if (format[i] == 's')
             	len += put_str(va_arg(pointer, char *));
             else if (format[i] == 'd')
-            	len += put_nbr(va_arg(pointer, int), 10);
+            	len += put_nbr(va_arg(pointer, int));
             else if (format[i] == 'x')
-            	len += put_nbr(va_arg(pointer, int), 16);
+            	len += ft_puthex(va_arg(pointer, unsigned int));
         }
         else
             len += put_char(format[i]);
