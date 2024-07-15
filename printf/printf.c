@@ -84,8 +84,8 @@ int main(int argc, char const *argv[])
 {
 	int len= 0;
 	int len1= 0;
-	len = ft_printf("teste %d\n",145, "oui");
-	len1 = ft_printf("teste %d\n",145, "oui");
+	len = ft_printf("teste %x\n",145, "oui");
+	len1 = ft_printf("teste %x\n",145, "oui");
 	printf("len %d\n",len );
 	printf("len1 %d\n",len1 );
 	return 0;
