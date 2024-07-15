@@ -77,40 +77,29 @@ char *ft_strjoin(char *s1, char *s2)
 	result[i + j] = 0;
 	return (result);
 }
-char *get_next_line(int fd)
-{
-	static char buffer[BUFFER_SIZE + 1];
-	char *line;
-	char *new;
-	int readed;
-	int to_copy;
 
-	readed = read(fd, buffer, BUFFER_SIZE);
-	line = ft_strdup(buffer);
-	new = ft_strchar(line, '\n');
-	while (!new && readed)
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	char	*str;
+
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (malloc(1));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		buffer[readed] = 0;
-		line = ft_strjoin(line, buffer);
-		readed = read(fd, buffer, BUFFER_SIZE);
-		new = ft_strchar(line, '\n');
+		str[i] = s[start + i];
+		i++;
 	}
-	if (ft_strlen(line) == 0)
-	{
-		return (free(line), 0);
-	}
-	if (new != 0)
-	{
-		to_copy = new - line + 1;
-		buffer = ft_strcpy(buffer, new + 1);
-	}
-	else
-	{
-		to_copy = ft_strlen(line);
-		buffer[0] = 0;
-	}
-	line[to_copy] = 0;
-	return (line);
+	str[i] = 0;
+	return (str);
 }
 
 #include <stdio.h>
