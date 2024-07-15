@@ -23,10 +23,9 @@ int put_str(char *str)
     return (count);
 }
 
-int put_nbr(long long int nb, int base)
+int put_nbr(long int nb)
 {
     int count = 0;
-    char *hexa = "0123456789abcdef";
     char c;
 
     if (nb < 0)
@@ -35,8 +34,8 @@ int put_nbr(long long int nb, int base)
         count += put_char('-');
     }
     if (nb >= base)
-        count +=  put_nbr(nb / base, base);
-    c = hexa[nb % base];
+        count +=  put_nbr(nb / 10);
+    c = hexa[nb % 10];
     count += put_char(c);
     return (count);
 }
