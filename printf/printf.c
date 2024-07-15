@@ -52,7 +52,7 @@ int	ft_puthex(unsigned int nb)
 		count += ft_puthex(nb % 16);
 	}
 	else
-		count += put_char(hexc[nb]);
+		count += put_char(hex[nb]);
 	return (count);
 }
 int	ft_printf(const char *format, ... )
