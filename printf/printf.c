@@ -33,9 +33,9 @@ int put_nbr(long int nb)
         nb = -nb;
         count += put_char('-');
     }
-    if (nb >= base)
+    if (nb >= 10)
         count +=  put_nbr(nb / 10);
-    c = hexa[nb % 10];
+    c = nb % 10 + 48;
     count += put_char(c);
     return (count);
 }
