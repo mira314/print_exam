@@ -1,6 +1,5 @@
 #include "gnl.h"
-
-char *ft_strchar(char *str, int c)
+char *ft_strchr(char *str, int c)
 {
 	int i;
 	i = 0;
@@ -39,7 +38,7 @@ char *ft_strdup(char *str)
 	int len;
 
 	len = ft_strlen(str);
-	result = malloc(sizeof(char) + 1);
+	result = malloc(sizeof(char) *len + 1);
 	if (!result)
 		return (0);
 	result = ft_strcpy(result, str);
@@ -171,7 +170,7 @@ char	*get_next_line(int fd)
 	readed = ft_set_line(line);
 	return (line);
 }
-
+/*
 #include <stdio.h>
 int main(int argc, char *argv[])
 {
@@ -186,3 +185,4 @@ int main(int argc, char *argv[])
 	free(s);
 	return 0;
 }
+*/

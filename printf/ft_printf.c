@@ -80,7 +80,8 @@ int	ft_printf(const char *format, ... )
     va_end(pointer);
     return (len);
 }
-int main(int argc, char const *argv[])
+/*
+int main()
 {
 	int len= 0;
 	int len1= 0;
@@ -90,4 +91,4 @@ int main(int argc, char const *argv[])
 	printf("len1 %d\n",len1 );
 	return 0;
 }
-
+*/
