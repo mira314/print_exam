@@ -20,30 +20,7 @@ unsigned int ft_strlen(char *str)
 		i++;
 	return (i);
 }
-char *ft_strcpy(char *dest, char *src)
-{
-	int i;
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = 0;
-	return (dest);
-}
-char *ft_strdup(char *str)
-{
-	char *result;
-	int len;
 
-	len = ft_strlen(str);
-	result = malloc(sizeof(char) *len + 1);
-	if (!result)
-		return (0);
-	result = ft_strcpy(result, str);
-	return (result);
-}
 char *ft_strjoin(char *s1, char *s2)
 {
 	unsigned int len1;
@@ -115,7 +92,10 @@ char	*ft_fill(int fd, char *readed, char *buffer)
 			break ;
 		buffer[bytes_read] = 0;
 		if (!readed)
-			readed = ft_strdup("");
+			{
+				readed = (char *)malloc(sizeof(char) * 2);
+				readed = "";
+			}
 		temp = readed;
 		readed = ft_strjoin(temp, buffer);
 		free (temp);
@@ -154,10 +134,10 @@ char	*get_next_line(int fd)
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
-		free(buffer);
-		free(readed);
 		readed = 0;
 		buffer = 0;
+		free(buffer);
+		free(readed);
 		return (0);
 	}
 	if (!buffer)
