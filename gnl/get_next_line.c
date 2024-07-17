@@ -157,6 +157,6 @@ int main(int argc, char *argv[])
 	int fd;
 	char *str = "text.txt";
 	fd = open (str, O_RDONLY);
-	ft_printf("%s\n",get_next_line(fd));
+	printf("%s\n",get_next_line(fd));
 	return 0;
 }
