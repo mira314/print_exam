@@ -150,19 +150,13 @@ char	*get_next_line(int fd)
 	readed = ft_set_line(line);
 	return (line);
 }
-/*
+#include <fcntl.h>
 #include <stdio.h>
 int main(int argc, char *argv[])
 {
-	char *s1;
-	char *s2;
-	char *s;
-
-	s1 = "mirado";
-	s2 = "valisoa";
-	s = ft_strjoin(s1, s2);
-	printf("%s\n",s);
-	free(s);
+	int fd;
+	char *str = "text.txt";
+	fd = open (str, O_RDONLY);
+	ft_printf("%s\n",get_next_line(fd));
 	return 0;
 }
-*/
