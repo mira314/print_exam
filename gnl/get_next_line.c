@@ -94,7 +94,7 @@ char	*ft_fill(int fd, char *readed, char *buffer)
 		if (!readed)
 			{
 				readed = (char *)malloc(sizeof(char) * 2);
-				readed = "";
+				readed[0] = 0;
 			}
 		temp = readed;
 		readed = ft_strjoin(temp, buffer);
